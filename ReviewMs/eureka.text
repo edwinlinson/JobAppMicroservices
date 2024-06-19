@@ -1,831 +1,93 @@
-2024-06-14T08:28:44.714+05:30  INFO 11012 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 62148189ms
-2024-06-14T08:29:44.714+05:30  INFO 11012 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T08:30:44.844+05:30  INFO 11012 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T08:31:44.715+05:30  INFO 11012 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 2ms
-2024-06-14T08:32:13.796+05:30  INFO 11012 --- [EurekaServer] [SpringApplicationShutdownHook] o.s.c.n.e.s.EurekaServiceRegistry        : Unregistering application EUREKASERVER with eureka with status DOWN
-2024-06-14T08:32:17.518+05:30  INFO 11012 --- [EurekaServer] [http-nio-8761-exec-1] c.n.e.registry.AbstractInstanceRegistry  : Registered instance JOBMS/DESKTOP-2L7S0IM:JobMs:8082 with status DOWN (replication=false)
-2024-06-14T08:32:17.717+05:30  INFO 11012 --- [EurekaServer] [http-nio-8761-exec-10] c.n.e.registry.AbstractInstanceRegistry  : Registered instance REVIEWMS/DESKTOP-2L7S0IM:ReviewMs:8083 with status DOWN (replication=false)
-2024-06-14T08:32:19.943+05:30  INFO 11012 --- [EurekaServer] [SpringApplicationShutdownHook] o.s.c.n.e.server.EurekaServerBootstrap   : Shutting down Eureka Server..
-2024-06-14T08:32:20.274+05:30  INFO 11012 --- [EurekaServer] [SpringApplicationShutdownHook] c.n.eureka.DefaultEurekaServerContext    : Shutting down ...
-2024-06-14T08:32:20.360+05:30  INFO 11012 --- [EurekaServer] [SpringApplicationShutdownHook] com.netflix.servo.monitor.StatsMonitor   : Attempting to get the value for an expired monitor: eurekaServer.replication.batchSize.Will start computing stats again.
-2024-06-14T08:32:21.547+05:30  INFO 11012 --- [EurekaServer] [SpringApplicationShutdownHook] com.netflix.servo.monitor.StatsMonitor   : Attempting to get the value for an expired monitor: eurekaServer.replication.executionTime.Will start computing stats again.
-2024-06-14T08:32:21.563+05:30  INFO 11012 --- [EurekaServer] [SpringApplicationShutdownHook] com.netflix.servo.monitor.StatsMonitor   : Attempting to get the value for an expired monitor: eurekaServer.replication.executionTime.Will start computing stats again.
-2024-06-14T08:32:21.579+05:30  INFO 11012 --- [EurekaServer] [SpringApplicationShutdownHook] com.netflix.servo.monitor.StatsMonitor   : Attempting to get the value for an expired monitor: eurekaServer.replication.batchSize.Will start computing stats again.
-2024-06-14T08:32:22.652+05:30  INFO 11012 --- [EurekaServer] [SpringApplicationShutdownHook] c.n.eureka.DefaultEurekaServerContext    : Shut down
-2024-06-14T08:32:22.897+05:30  INFO 11012 --- [EurekaServer] [SpringApplicationShutdownHook] o.s.c.n.e.server.EurekaServerBootstrap   : Eureka Service is now shutdown...
-2024-06-14T08:32:19.334+05:30 ERROR 11012 --- [EurekaServer] [TaskBatchingWorker-target_localhost-19] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T08:32:22.987+05:30  INFO 11012 --- [EurekaServer] [SpringApplicationShutdownHook] c.n.eureka.DefaultEurekaServerContext    : Shutting down ...
-2024-06-14T08:32:23.510+05:30  INFO 11012 --- [EurekaServer] [SpringApplicationShutdownHook] c.n.eureka.DefaultEurekaServerContext    : Shut down
-2024-06-14T08:32:24.538+05:30  INFO 11012 --- [EurekaServer] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Shutting down DiscoveryClient ...
-2024-06-14T08:32:24.610+05:30  INFO 11012 --- [EurekaServer] [SpringApplicationShutdownHook] com.netflix.discovery.DiscoveryClient    : Completed shut down of DiscoveryClient
-2024-06-14T08:48:33.889+05:30  INFO 14352 --- [EurekaServer] [main] c.e.e.EurekaServerApplication            : Starting EurekaServerApplication using Java 20.0.1 with PID 14352 (D:\Spring trash practise\EurekaServer\target\classes started by user in D:\Spring trash practise\ReviewMs)
-2024-06-14T08:48:33.938+05:30  INFO 14352 --- [EurekaServer] [main] c.e.e.EurekaServerApplication            : No active profile set, falling back to 1 default profile: "default"
-2024-06-14T08:48:40.361+05:30  INFO 14352 --- [EurekaServer] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a635d5cc-80d4-3414-8e44-1a63af98bb7d
-2024-06-14T08:48:40.757+05:30  WARN 14352 --- [EurekaServer] [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
-2024-06-14T08:48:40.803+05:30  WARN 14352 --- [EurekaServer] [main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
-2024-06-14T08:48:41.744+05:30  INFO 14352 --- [EurekaServer] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8761 (http)
-2024-06-14T08:48:41.803+05:30  INFO 14352 --- [EurekaServer] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
-2024-06-14T08:48:41.805+05:30  INFO 14352 --- [EurekaServer] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
-2024-06-14T08:48:42.123+05:30  INFO 14352 --- [EurekaServer] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
-2024-06-14T08:48:42.124+05:30  INFO 14352 --- [EurekaServer] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 7988 ms
-2024-06-14T08:48:43.411+05:30 DEBUG 14352 --- [EurekaServer] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
-2024-06-14T08:48:45.630+05:30  INFO 14352 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
-2024-06-14T08:48:45.635+05:30  INFO 14352 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
-2024-06-14T08:48:46.461+05:30  INFO 14352 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
-2024-06-14T08:48:46.462+05:30  INFO 14352 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
-2024-06-14T08:48:47.321+05:30 DEBUG 14352 --- [EurekaServer] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 4 mappings in 'requestMappingHandlerMapping'
-2024-06-14T08:48:47.546+05:30 DEBUG 14352 --- [EurekaServer] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
-2024-06-14T08:48:48.175+05:30 DEBUG 14352 --- [EurekaServer] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
-2024-06-14T08:48:48.288+05:30 DEBUG 14352 --- [EurekaServer] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
-2024-06-14T08:48:50.299+05:30 DEBUG 14352 --- [EurekaServer] [main] o.s.w.s.v.f.FreeMarkerConfigurer         : File system access not preferred: using SpringTemplateLoader
-2024-06-14T08:48:50.890+05:30  WARN 14352 --- [EurekaServer] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
-2024-06-14T08:48:50.976+05:30  INFO 14352 --- [EurekaServer] [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
-2024-06-14T08:48:51.084+05:30  INFO 14352 --- [EurekaServer] [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
-2024-06-14T08:48:51.084+05:30  INFO 14352 --- [EurekaServer] [main] com.netflix.discovery.DiscoveryClient    : Client configured to neither register nor query for data.
-2024-06-14T08:48:51.121+05:30  INFO 14352 --- [EurekaServer] [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1718335131117 with initial instances count: 0
-2024-06-14T08:48:51.278+05:30  INFO 14352 --- [EurekaServer] [main] c.n.eureka.DefaultEurekaServerContext    : Initializing ...
-2024-06-14T08:48:51.288+05:30  INFO 14352 --- [EurekaServer] [main] c.n.eureka.cluster.PeerEurekaNodes       : Adding new peer nodes [http://localhost:8761/eureka/]
-2024-06-14T08:48:51.803+05:30  INFO 14352 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
-2024-06-14T08:48:51.803+05:30  INFO 14352 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
-2024-06-14T08:48:51.804+05:30  INFO 14352 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
-2024-06-14T08:48:51.804+05:30  INFO 14352 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
-2024-06-14T08:48:51.964+05:30  INFO 14352 --- [EurekaServer] [main] c.n.eureka.cluster.PeerEurekaNodes       : Replica node URL:  http://localhost:8761/eureka/
-2024-06-14T08:48:52.005+05:30  INFO 14352 --- [EurekaServer] [main] c.n.e.registry.AbstractInstanceRegistry  : Finished initializing remote region registries. All known remote regions: []
-2024-06-14T08:48:52.009+05:30  INFO 14352 --- [EurekaServer] [main] c.n.eureka.DefaultEurekaServerContext    : Initialized
-2024-06-14T08:48:52.054+05:30  INFO 14352 --- [EurekaServer] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
-2024-06-14T08:48:52.329+05:30  INFO 14352 --- [EurekaServer] [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application EUREKASERVER with eureka with status UP
-2024-06-14T08:48:52.365+05:30  INFO 14352 --- [EurekaServer] [Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : isAws returned false
-2024-06-14T08:48:52.366+05:30  INFO 14352 --- [EurekaServer] [Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : Initialized server context
-2024-06-14T08:48:52.367+05:30  INFO 14352 --- [EurekaServer] [Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Got 1 instances from neighboring DS node
-2024-06-14T08:48:52.367+05:30  INFO 14352 --- [EurekaServer] [Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Renew threshold is: 1
-2024-06-14T08:48:52.368+05:30  INFO 14352 --- [EurekaServer] [Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Changing status to UP
-2024-06-14T08:48:52.381+05:30  INFO 14352 --- [EurekaServer] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8761 (http) with context path '/'
-2024-06-14T08:48:52.389+05:30  INFO 14352 --- [EurekaServer] [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8761
-2024-06-14T08:48:52.392+05:30  INFO 14352 --- [EurekaServer] [Thread-9] e.s.EurekaServerInitializerConfiguration : Started Eureka Server
-2024-06-14T08:48:52.785+05:30  INFO 14352 --- [EurekaServer] [main] c.e.e.EurekaServerApplication            : Started EurekaServerApplication in 21.443 seconds (process running for 28.171)
-2024-06-14T08:49:49.014+05:30  INFO 14352 --- [EurekaServer] [http-nio-8761-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
-2024-06-14T08:49:49.029+05:30  INFO 14352 --- [EurekaServer] [http-nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
-2024-06-14T08:49:49.039+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
-2024-06-14T08:49:49.041+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
-2024-06-14T08:49:49.042+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
-2024-06-14T08:49:49.248+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@4f3cb42b
-2024-06-14T08:49:49.252+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@6d6a02f6
-2024-06-14T08:49:49.258+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
-2024-06-14T08:49:49.259+05:30  INFO 14352 --- [EurekaServer] [http-nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 229 ms
-2024-06-14T08:49:51.847+05:30  INFO 14352 --- [EurekaServer] [http-nio-8761-exec-2] c.n.e.registry.AbstractInstanceRegistry  : Registered instance JOBMS/DESKTOP-2L7S0IM:JobMs:8082 with status UP (replication=false)
-2024-06-14T08:49:52.375+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T08:49:53.382+05:30  INFO 14352 --- [EurekaServer] [http-nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance JOBMS/DESKTOP-2L7S0IM:JobMs:8082 with status UP (replication=true)
-2024-06-14T08:50:23.933+05:30  INFO 14352 --- [EurekaServer] [http-nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance REVIEWMS/DESKTOP-2L7S0IM:ReviewMs:8083 with status UP (replication=false)
-2024-06-14T08:50:24.457+05:30  INFO 14352 --- [EurekaServer] [http-nio-8761-exec-9] c.n.e.registry.AbstractInstanceRegistry  : Registered instance REVIEWMS/DESKTOP-2L7S0IM:ReviewMs:8083 with status UP (replication=true)
-2024-06-14T08:50:52.475+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 97ms
-2024-06-14T08:51:08.735+05:30  INFO 14352 --- [EurekaServer] [http-nio-8761-exec-7] c.n.e.registry.AbstractInstanceRegistry  : Registered instance COMPANYMS/DESKTOP-2L7S0IM:companyMS:8081 with status UP (replication=false)
-2024-06-14T08:51:09.267+05:30  INFO 14352 --- [EurekaServer] [http-nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance COMPANYMS/DESKTOP-2L7S0IM:companyMS:8081 with status UP (replication=true)
-2024-06-14T08:51:52.481+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 9ms
-2024-06-14T08:52:52.481+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T08:53:52.481+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T08:54:52.482+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
-2024-06-14T08:55:52.483+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T08:56:52.505+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 22ms
-2024-06-14T08:57:52.506+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T08:58:52.506+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:09:56.803+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 4204320ms
-2024-06-14T10:10:21.188+05:30 ERROR 14352 --- [EurekaServer] [TaskBatchingWorker-target_localhost-3] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T10:10:56.793+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:11:56.793+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:12:56.794+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:13:56.291+05:30  INFO 14352 --- [EurekaServer] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] c.n.e.r.PeerAwareInstanceRegistryImpl    : Current renewal threshold is : 6
-2024-06-14T10:13:56.794+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:14:56.794+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:15:56.794+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:16:56.794+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:17:46.219+05:30 ERROR 14352 --- [EurekaServer] [TaskBatchingWorker-target_localhost-3] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T10:17:56.799+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 2ms
-2024-06-14T10:18:58.018+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 282ms
-2024-06-14T10:19:10.075+05:30 ERROR 14352 --- [EurekaServer] [TaskBatchingWorker-target_localhost-12] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T10:19:57.084+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
-2024-06-14T10:20:57.086+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:21:42.166+05:30 ERROR 14352 --- [EurekaServer] [TaskBatchingWorker-target_localhost-3] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T10:21:49.583+05:30 ERROR 14352 --- [EurekaServer] [TaskBatchingWorker-target_localhost-1] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T10:21:51.505+05:30 ERROR 14352 --- [EurekaServer] [TaskBatchingWorker-target_localhost-1] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T10:21:57.146+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 58ms
-2024-06-14T10:22:57.143+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:23:57.143+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:24:57.156+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 7ms
-2024-06-14T10:25:49.845+05:30 ERROR 14352 --- [EurekaServer] [TaskBatchingWorker-target_localhost-12] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T10:25:57.018+05:30  INFO 14352 --- [EurekaServer] [http-nio-8761-exec-10] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CONFIGSERVER/DESKTOP-2L7S0IM:ConfigServer with status UP (replication=false)
-2024-06-14T10:25:57.146+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:25:58.319+05:30  INFO 14352 --- [EurekaServer] [http-nio-8761-exec-7] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CONFIGSERVER/DESKTOP-2L7S0IM:ConfigServer with status UP (replication=true)
-2024-06-14T10:26:57.147+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:27:57.147+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:28:27.844+05:30 ERROR 14352 --- [EurekaServer] [TaskBatchingWorker-target_localhost-1] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T10:28:56.294+05:30  INFO 14352 --- [EurekaServer] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] c.n.e.r.PeerAwareInstanceRegistryImpl    : Current renewal threshold is : 8
-2024-06-14T10:28:57.148+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:29:12.603+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-4] o.s.web.servlet.DispatcherServlet        : GET "/", parameters={}
-2024-06-14T10:29:12.946+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-4] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.cloud.netflix.eureka.server.EurekaController#status(HttpServletRequest, Map)
-2024-06-14T10:29:14.779+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-4] o.s.w.s.v.ContentNegotiatingViewResolver : Selected 'text/html' given [text/html, application/xhtml+xml, image/avif, image/webp, image/apng, application/xml;q=0.9, */*;q=0.8, application/signed-exchange;v=b3;q=0.7]
-2024-06-14T10:29:14.790+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-4] o.s.w.s.view.freemarker.FreeMarkerView   : View name 'eureka/status', model {time=Fri Jun 14 10:29:13 IST 2024, basePath=/, dashboardPath=, currentTime=2024-06-14T10:29:13 +0530, upTime=01:40, environment=test, datacenter=default, registry=org.springframework.cloud.netflix.eureka.server.InstanceRegistry@3a89da59, isBelowRenewThreshold=false, replicas=[localhost=http://localhost:8761/eureka/], apps=[{name=COMPANYMS, amiCounts=[n/a=1], zoneCounts=[=1], instanceInfos=[{status=UP, instances=[{id=DESKTOP-2L7S0IM:companyMS:8081, url=http://DESKTOP-2L7S0IM:8081/actuator/info, isHref=true}], isNotUp=false}]}, {name=CONFIGSERVER, amiCounts=[n/a=1], zoneCounts=[=1], instanceInfos=[{status=UP, instances=[{id=DESKTOP-2L7S0IM:ConfigServer, url=http://DESKTOP-2L7S0IM:8080/actuator/info, isHref=true}], isNotUp=false}]}, {name=JOBMS, amiCounts=[n/a=1], zoneCounts=[=1], instanceInfos=[{status=UP, instances=[{id=DESKTOP-2L7S0IM:JobMs:8082, url=http://DESKTOP-2L7S0IM:8082/actuator/info, isHref=true}], isNotUp=false}]}, {name=REVIEWMS, amiCounts=[n/a=1], zoneCounts=[=1], instanceInfos=[{status=UP, instances=[{id=DESKTOP-2L7S0IM:ReviewMs:8083, url=http://DESKTOP-2L7S0IM:8083/actuator/info, isHref=true}], isNotUp=false}]}], statusInfo=com.netflix.eureka.util.StatusInfo@3f445807, instanceInfo={ipAddr=192.168.18.146, status=UP}, applicationStats={registered-replicas=http://localhost:8761/eureka/, available-replicas=, unavailable-replicas=http://localhost:8761/eureka/,}, org.springframework.validation.BindingResult.registry=org.springframework.validation.BeanPropertyBindingResult: 0 errors, org.springframework.validation.BindingResult.statusInfo=org.springframework.validation.BeanPropertyBindingResult: 0 errors}
-2024-06-14T10:29:14.793+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-4] o.s.w.s.view.freemarker.FreeMarkerView   : Rendering [eureka/status.ftlh]
-2024-06-14T10:29:15.357+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-4] o.s.web.servlet.DispatcherServlet        : Completed 200 OK
-2024-06-14T10:29:15.565+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-7] o.s.web.servlet.DispatcherServlet        : GET "/eureka/js/wro.js", parameters={}
-2024-06-14T10:29:15.565+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-10] o.s.web.servlet.DispatcherServlet        : GET "/eureka/css/wro.css", parameters={}
-2024-06-14T10:29:15.583+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-7] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
-2024-06-14T10:29:15.583+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-10] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
-2024-06-14T10:29:15.593+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-7] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
-2024-06-14T10:29:15.594+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-10] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
-2024-06-14T10:29:15.748+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-3] o.s.web.servlet.DispatcherServlet        : GET "/eureka/images/spring-logo-eureka.png", parameters={}
-2024-06-14T10:29:15.755+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-3] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
-2024-06-14T10:29:15.764+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-3] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
-2024-06-14T10:29:15.895+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-5] o.s.web.servlet.DispatcherServlet        : GET "/eureka/fonts/varela_round-webfont.woff", parameters={}
-2024-06-14T10:29:15.895+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : GET "/eureka/fonts/montserrat-webfont.woff", parameters={}
-2024-06-14T10:29:15.899+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-5] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
-2024-06-14T10:29:15.899+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-1] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
-2024-06-14T10:29:15.926+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-5] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
-2024-06-14T10:29:15.924+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Completed 304 NOT_MODIFIED
-2024-06-14T10:29:16.068+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-6] o.s.web.servlet.DispatcherServlet        : GET "/favicon.ico", parameters={}
-2024-06-14T10:29:16.070+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-6] o.s.w.s.handler.SimpleUrlHandlerMapping  : Mapped to ResourceHttpRequestHandler [classpath [META-INF/resources/], classpath [resources/], classpath [static/], classpath [public/], ServletContext [/]]
-2024-06-14T10:29:16.078+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-6] o.s.w.s.r.ResourceHttpRequestHandler     : Resource not found
-2024-06-14T10:29:16.102+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-6] .w.s.m.s.DefaultHandlerExceptionResolver : Resolved [org.springframework.web.servlet.resource.NoResourceFoundException: No static resource favicon.ico.]
-2024-06-14T10:29:16.103+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-6] o.s.web.servlet.DispatcherServlet        : Completed 404 NOT_FOUND
-2024-06-14T10:29:16.130+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-6] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for GET "/error", parameters={}
-2024-06-14T10:29:16.134+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-6] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
-2024-06-14T10:29:16.202+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json;q=0.8', given [image/avif, image/webp, image/apng, image/svg+xml, image/*, */*;q=0.8] and supported [application/json, application/*+json, application/xml;charset=UTF-8, text/xml;charset=UTF-8, application/*+xml;charset=UTF-8]
-2024-06-14T10:29:16.205+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-6] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Fri Jun 14 10:29:16 IST 2024, status=404, error=Not Found, path=/favicon.ico}]
-2024-06-14T10:29:16.272+05:30 DEBUG 14352 --- [EurekaServer] [http-nio-8761-exec-6] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
-2024-06-14T10:29:57.149+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:30:57.151+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 2ms
-2024-06-14T10:31:57.151+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:32:57.152+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:33:57.152+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:34:57.152+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:35:57.153+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
-2024-06-14T10:36:57.154+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:37:57.155+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:38:57.156+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 2ms
-2024-06-14T10:39:57.157+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:40:57.165+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:41:57.157+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:42:57.157+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:43:56.324+05:30  INFO 14352 --- [EurekaServer] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] c.n.e.r.PeerAwareInstanceRegistryImpl    : Current renewal threshold is : 8
-2024-06-14T10:43:57.158+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:44:31.935+05:30 ERROR 14352 --- [EurekaServer] [TaskBatchingWorker-target_localhost-9] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T10:44:57.158+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:45:57.159+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:46:57.159+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:47:57.160+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:48:57.160+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:49:57.160+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:52:16.593+05:30 ERROR 14352 --- [EurekaServer] [TaskBatchingWorker-target_localhost-19] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T10:52:18.822+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 81696ms
-2024-06-14T10:53:18.823+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:54:18.823+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:55:18.824+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:56:18.824+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:57:18.826+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:58:18.826+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T10:59:18.826+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:00:17.961+05:30  INFO 14352 --- [EurekaServer] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] c.n.e.r.PeerAwareInstanceRegistryImpl    : Current renewal threshold is : 8
-2024-06-14T11:00:18.827+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:01:18.827+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:02:18.828+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
-2024-06-14T11:03:18.828+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:04:18.829+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
-2024-06-14T11:05:18.829+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:06:23.092+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 4297ms
-2024-06-14T11:08:11.341+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 48282ms
-2024-06-14T11:09:11.424+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 83ms
-2024-06-14T11:10:11.499+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 67ms
-2024-06-14T11:10:11.430+05:30 ERROR 14352 --- [EurekaServer] [TaskBatchingWorker-target_localhost-12] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T11:11:11.463+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:12:11.450+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:12:42.452+05:30 ERROR 14352 --- [EurekaServer] [TaskBatchingWorker-target_localhost-2] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T11:13:11.451+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
-2024-06-14T11:14:11.451+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:15:11.452+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
-2024-06-14T11:16:10.641+05:30  INFO 14352 --- [EurekaServer] [ReplicaAwareInstanceRegistry - RenewalThresholdUpdater] c.n.e.r.PeerAwareInstanceRegistryImpl    : Current renewal threshold is : 8
-2024-06-14T11:16:11.453+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:17:11.454+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:18:11.454+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:18:31.704+05:30 ERROR 14352 --- [EurekaServer] [TaskBatchingWorker-target_localhost-8] c.n.e.cluster.ReplicationTaskProcessor   : It seems to be a socket read timeout exception, it will retry later. if it continues to happen and some eureka node occupied all the cpu time, you should set property 'eureka.server.peer-node-read-timeout-ms' to a bigger value
-
-jakarta.ws.rs.ProcessingException: java.net.SocketTimeoutException: Read timed out
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:533) ~[jersey-apache-connector-3.1.6.jar:na]
-	at org.glassfish.jersey.client.ClientRuntime.invoke(ClientRuntime.java:300) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$invoke$0(JerseyInvocation.java:674) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.call(JerseyInvocation.java:709) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.lambda$runInScope$3(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:292) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:274) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.internal.Errors.process(Errors.java:205) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.process.internal.RequestScope.runInScope(RequestScope.java:391) ~[jersey-common-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.runInScope(JerseyInvocation.java:703) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation.invoke(JerseyInvocation.java:673) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.method(JerseyInvocation.java:439) ~[jersey-client-3.1.6.jar:na]
-	at org.glassfish.jersey.client.JerseyInvocation$Builder.post(JerseyInvocation.java:345) ~[jersey-client-3.1.6.jar:na]
-	at com.netflix.eureka.transport.Jersey3ReplicationClient.submitBatchUpdates(Jersey3ReplicationClient.java:116) ~[eureka-core-jersey3-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.cluster.ReplicationTaskProcessor.process(ReplicationTaskProcessor.java:80) ~[eureka-core-2.0.2.jar:2.0.2]
-	at com.netflix.eureka.util.batcher.TaskExecutors$BatchWorkerRunnable.run(TaskExecutors.java:190) ~[eureka-core-2.0.2.jar:2.0.2]
-	at java.base/java.lang.Thread.run(Thread.java:1623) ~[na:na]
-Caused by: java.net.SocketTimeoutException: Read timed out
-	at java.base/sun.nio.ch.NioSocketImpl.timedRead(NioSocketImpl.java:273) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.implRead(NioSocketImpl.java:299) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl.read(NioSocketImpl.java:340) ~[na:na]
-	at java.base/sun.nio.ch.NioSocketImpl$1.read(NioSocketImpl.java:789) ~[na:na]
-	at java.base/java.net.Socket$SocketInputStream.read(Socket.java:1025) ~[na:na]
-	at org.apache.http.impl.io.SessionInputBufferImpl.streamRead(SessionInputBufferImpl.java:137) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.fillBuffer(SessionInputBufferImpl.java:153) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.io.SessionInputBufferImpl.readLine(SessionInputBufferImpl.java:280) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:138) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.conn.DefaultHttpResponseParser.parseHead(DefaultHttpResponseParser.java:56) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.io.AbstractMessageParser.parse(AbstractMessageParser.java:259) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.DefaultBHttpClientConnection.receiveResponseHeader(DefaultBHttpClientConnection.java:163) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.conn.CPoolProxy.receiveResponseHeader(CPoolProxy.java:165) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.protocol.HttpRequestExecutor.doReceiveResponse(HttpRequestExecutor.java:273) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.protocol.HttpRequestExecutor.execute(HttpRequestExecutor.java:125) ~[httpcore-4.4.16.jar:4.4.16]
-	at org.apache.http.impl.execchain.MainClientExec.execute(MainClientExec.java:272) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.ProtocolExec.execute(ProtocolExec.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RetryExec.execute(RetryExec.java:89) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.execchain.RedirectExec.execute(RedirectExec.java:111) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.InternalHttpClient.doExecute(InternalHttpClient.java:185) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.apache.http.impl.client.CloseableHttpClient.execute(CloseableHttpClient.java:72) ~[httpclient-4.5.3.jar:4.5.3]
-	at org.glassfish.jersey.apache.connector.ApacheConnector.apply(ApacheConnector.java:485) ~[jersey-apache-connector-3.1.6.jar:na]
-	... 16 common frames omitted
-
-2024-06-14T11:19:11.454+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:20:11.454+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:21:11.455+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:22:11.455+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 1ms
-2024-06-14T11:23:11.536+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 4886ms
-2024-06-14T11:24:11.456+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
-2024-06-14T11:25:11.678+05:30  INFO 14352 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 54ms
+2024-06-19T07:51:52.896+05:30  INFO 12596 --- [EurekaServer] [main] c.e.e.EurekaServerApplication            : Starting EurekaServerApplication using Java 20.0.1 with PID 12596 (D:\Spring trash practise\EurekaServer\target\classes started by user in D:\Spring trash practise\ReviewMs)
+2024-06-19T07:51:52.918+05:30  INFO 12596 --- [EurekaServer] [main] c.e.e.EurekaServerApplication            : No active profile set, falling back to 1 default profile: "default"
+2024-06-19T07:51:57.877+05:30  INFO 12596 --- [EurekaServer] [main] o.s.cloud.context.scope.GenericScope     : BeanFactory id=a635d5cc-80d4-3414-8e44-1a63af98bb7d
+2024-06-19T07:51:58.335+05:30  WARN 12596 --- [EurekaServer] [main] trationDelegate$BeanPostProcessorChecker : Bean 'org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig' of type [org.springframework.cloud.client.loadbalancer.LoadBalancerAutoConfiguration$DeferringLoadBalancerInterceptorConfig] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). The currently created BeanPostProcessor [lbRestClientPostProcessor] is declared through a non-static factory method on that class; consider declaring it as static instead.
+2024-06-19T07:51:58.346+05:30  WARN 12596 --- [EurekaServer] [main] trationDelegate$BeanPostProcessorChecker : Bean 'deferringLoadBalancerInterceptor' of type [org.springframework.cloud.client.loadbalancer.DeferringLoadBalancerInterceptor] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying). Is this bean getting eagerly injected into a currently created BeanPostProcessor [lbRestClientPostProcessor]? Check the corresponding BeanPostProcessor declaration and its dependencies.
+2024-06-19T07:51:59.273+05:30  INFO 12596 --- [EurekaServer] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat initialized with port 8761 (http)
+2024-06-19T07:51:59.319+05:30  INFO 12596 --- [EurekaServer] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2024-06-19T07:51:59.320+05:30  INFO 12596 --- [EurekaServer] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/10.1.24]
+2024-06-19T07:51:59.652+05:30  INFO 12596 --- [EurekaServer] [main] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring embedded WebApplicationContext
+2024-06-19T07:51:59.654+05:30  INFO 12596 --- [EurekaServer] [main] w.s.c.ServletWebServerApplicationContext : Root WebApplicationContext: initialization completed in 6565 ms
+2024-06-19T07:52:01.454+05:30 DEBUG 12596 --- [EurekaServer] [main] o.s.w.f.ServerHttpObservationFilter      : Filter 'webMvcObservationFilter' configured for use
+2024-06-19T07:52:04.036+05:30  INFO 12596 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2024-06-19T07:52:04.043+05:30  INFO 12596 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2024-06-19T07:52:04.935+05:30  INFO 12596 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2024-06-19T07:52:04.937+05:30  INFO 12596 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2024-06-19T07:52:05.817+05:30 DEBUG 12596 --- [EurekaServer] [main] s.w.s.m.m.a.RequestMappingHandlerMapping : 4 mappings in 'requestMappingHandlerMapping'
+2024-06-19T07:52:06.064+05:30 DEBUG 12596 --- [EurekaServer] [main] o.s.w.s.handler.SimpleUrlHandlerMapping  : Patterns [/webjars/**, /**] in 'resourceHandlerMapping'
+2024-06-19T07:52:06.585+05:30 DEBUG 12596 --- [EurekaServer] [main] s.w.s.m.m.a.RequestMappingHandlerAdapter : ControllerAdvice beans: 0 @ModelAttribute, 0 @InitBinder, 1 RequestBodyAdvice, 1 ResponseBodyAdvice
+2024-06-19T07:52:06.742+05:30 DEBUG 12596 --- [EurekaServer] [main] .m.m.a.ExceptionHandlerExceptionResolver : ControllerAdvice beans: 0 @ExceptionHandler, 1 ResponseBodyAdvice
+2024-06-19T07:52:08.916+05:30 DEBUG 12596 --- [EurekaServer] [main] o.s.w.s.v.f.FreeMarkerConfigurer         : File system access not preferred: using SpringTemplateLoader
+2024-06-19T07:52:09.727+05:30  WARN 12596 --- [EurekaServer] [main] iguration$LoadBalancerCaffeineWarnLogger : Spring Cloud LoadBalancer is currently working with the default cache. While this cache implementation is useful for development and tests, it's recommended to use Caffeine cache in production.You can switch to using Caffeine cache, by adding it and org.springframework.cache.caffeine.CaffeineCacheManager to the classpath.
+2024-06-19T07:52:09.843+05:30  INFO 12596 --- [EurekaServer] [main] o.s.c.n.eureka.InstanceInfoFactory       : Setting initial instance status as: STARTING
+2024-06-19T07:52:09.974+05:30  INFO 12596 --- [EurekaServer] [main] com.netflix.discovery.DiscoveryClient    : Initializing Eureka in region us-east-1
+2024-06-19T07:52:09.977+05:30  INFO 12596 --- [EurekaServer] [main] com.netflix.discovery.DiscoveryClient    : Client configured to neither register nor query for data.
+2024-06-19T07:52:10.012+05:30  INFO 12596 --- [EurekaServer] [main] com.netflix.discovery.DiscoveryClient    : Discovery Client initialized at timestamp 1718763730008 with initial instances count: 0
+2024-06-19T07:52:10.159+05:30  INFO 12596 --- [EurekaServer] [main] c.n.eureka.DefaultEurekaServerContext    : Initializing ...
+2024-06-19T07:52:10.165+05:30  INFO 12596 --- [EurekaServer] [main] c.n.eureka.cluster.PeerEurekaNodes       : Adding new peer nodes [http://localhost:8761/eureka/]
+2024-06-19T07:52:10.652+05:30  INFO 12596 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON encoding codec LegacyJacksonJson
+2024-06-19T07:52:10.653+05:30  INFO 12596 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using JSON decoding codec LegacyJacksonJson
+2024-06-19T07:52:10.653+05:30  INFO 12596 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML encoding codec XStreamXml
+2024-06-19T07:52:10.653+05:30  INFO 12596 --- [EurekaServer] [main] c.n.d.provider.DiscoveryJerseyProvider   : Using XML decoding codec XStreamXml
+2024-06-19T07:52:10.842+05:30  INFO 12596 --- [EurekaServer] [main] c.n.eureka.cluster.PeerEurekaNodes       : Replica node URL:  http://localhost:8761/eureka/
+2024-06-19T07:52:10.883+05:30  INFO 12596 --- [EurekaServer] [main] c.n.e.registry.AbstractInstanceRegistry  : Finished initializing remote region registries. All known remote regions: []
+2024-06-19T07:52:10.891+05:30  INFO 12596 --- [EurekaServer] [main] c.n.eureka.DefaultEurekaServerContext    : Initialized
+2024-06-19T07:52:10.942+05:30  INFO 12596 --- [EurekaServer] [main] o.s.b.a.e.web.EndpointLinksResolver      : Exposing 1 endpoint beneath base path '/actuator'
+2024-06-19T07:52:11.246+05:30  INFO 12596 --- [EurekaServer] [main] o.s.c.n.e.s.EurekaServiceRegistry        : Registering application EUREKASERVER with eureka with status UP
+2024-06-19T07:52:11.283+05:30  INFO 12596 --- [EurekaServer] [Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : isAws returned false
+2024-06-19T07:52:11.285+05:30  INFO 12596 --- [EurekaServer] [Thread-9] o.s.c.n.e.server.EurekaServerBootstrap   : Initialized server context
+2024-06-19T07:52:11.285+05:30  INFO 12596 --- [EurekaServer] [Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Got 1 instances from neighboring DS node
+2024-06-19T07:52:11.287+05:30  INFO 12596 --- [EurekaServer] [Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Renew threshold is: 1
+2024-06-19T07:52:11.287+05:30  INFO 12596 --- [EurekaServer] [Thread-9] c.n.e.r.PeerAwareInstanceRegistryImpl    : Changing status to UP
+2024-06-19T07:52:11.321+05:30  INFO 12596 --- [EurekaServer] [main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port 8761 (http) with context path '/'
+2024-06-19T07:52:11.328+05:30  INFO 12596 --- [EurekaServer] [main] .s.c.n.e.s.EurekaAutoServiceRegistration : Updating port to 8761
+2024-06-19T07:52:11.356+05:30  INFO 12596 --- [EurekaServer] [Thread-9] e.s.EurekaServerInitializerConfiguration : Started Eureka Server
+2024-06-19T07:52:11.852+05:30  INFO 12596 --- [EurekaServer] [main] c.e.e.EurekaServerApplication            : Started EurekaServerApplication in 21.149 seconds (process running for 26.631)
+2024-06-19T07:52:16.962+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-2] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2024-06-19T07:52:16.964+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-2] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2024-06-19T07:52:16.965+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-2] o.s.web.servlet.DispatcherServlet        : Detected StandardServletMultipartResolver
+2024-06-19T07:52:16.966+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-2] o.s.web.servlet.DispatcherServlet        : Detected AcceptHeaderLocaleResolver
+2024-06-19T07:52:16.967+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-2] o.s.web.servlet.DispatcherServlet        : Detected FixedThemeResolver
+2024-06-19T07:52:16.971+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.view.DefaultRequestToViewNameTranslator@5680deb9
+2024-06-19T07:52:16.973+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-2] o.s.web.servlet.DispatcherServlet        : Detected org.springframework.web.servlet.support.SessionFlashMapManager@8b62910
+2024-06-19T07:52:16.974+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-2] o.s.web.servlet.DispatcherServlet        : enableLoggingRequestDetails='false': request parameters and headers will be masked to prevent unsafe logging of potentially sensitive data
+2024-06-19T07:52:16.977+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-2] o.s.web.servlet.DispatcherServlet        : Completed initialization in 10 ms
+2024-06-19T07:52:17.834+05:30  WARN 12596 --- [EurekaServer] [http-nio-8761-exec-1] c.n.e.registry.AbstractInstanceRegistry  : DS: Registry: lease doesn't exist, registering resource: CONFIGSERVER - DESKTOP-2L7S0IM:ConfigServer
+2024-06-19T07:52:17.842+05:30  WARN 12596 --- [EurekaServer] [http-nio-8761-exec-1] c.n.eureka.resources.InstanceResource    : Not Found (Renew): CONFIGSERVER - DESKTOP-2L7S0IM:ConfigServer
+2024-06-19T07:52:17.850+05:30  WARN 12596 --- [EurekaServer] [http-nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : DS: Registry: lease doesn't exist, registering resource: CLOUDGATEWAY - DESKTOP-2L7S0IM:CloudGateway:8085
+2024-06-19T07:52:17.851+05:30  WARN 12596 --- [EurekaServer] [http-nio-8761-exec-5] c.n.eureka.resources.InstanceResource    : Not Found (Renew): CLOUDGATEWAY - DESKTOP-2L7S0IM:CloudGateway:8085
+2024-06-19T07:52:17.999+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for PUT "/error?status=UP&lastDirtyTimestamp=1718763706437", parameters={masked}
+2024-06-19T07:52:18.000+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-5] o.s.web.servlet.DispatcherServlet        : "ERROR" dispatch for PUT "/error?status=UP&lastDirtyTimestamp=1718763676878", parameters={masked}
+2024-06-19T07:52:18.085+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-1] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-06-19T07:52:18.088+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-5] s.w.s.m.m.a.RequestMappingHandlerMapping : Mapped to org.springframework.boot.autoconfigure.web.servlet.error.BasicErrorController#error(HttpServletRequest)
+2024-06-19T07:52:18.232+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/xml;charset=UTF-8, text/xml;charset=UTF-8, application/*+xml;charset=UTF-8]
+2024-06-19T07:52:18.241+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-1] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Jun 19 07:52:18 IST 2024, status=404, error=Not Found, path=/eureka/apps/CONFIGSERVER (truncated)...]
+2024-06-19T07:52:18.233+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Using 'application/json', given [application/json, application/*+json] and supported [application/json, application/*+json, application/xml;charset=UTF-8, text/xml;charset=UTF-8, application/*+xml;charset=UTF-8]
+2024-06-19T07:52:18.243+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-5] o.s.w.s.m.m.a.HttpEntityMethodProcessor  : Writing [{timestamp=Wed Jun 19 07:52:18 IST 2024, status=404, error=Not Found, path=/eureka/apps/CLOUDGATEWAY (truncated)...]
+2024-06-19T07:52:18.377+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-1] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-06-19T07:52:18.377+05:30 DEBUG 12596 --- [EurekaServer] [http-nio-8761-exec-5] o.s.web.servlet.DispatcherServlet        : Exiting from "ERROR" dispatch, status 404
+2024-06-19T07:52:18.516+05:30  WARN 12596 --- [EurekaServer] [http-nio-8761-exec-4] c.n.e.registry.AbstractInstanceRegistry  : There is an existing lease and the existing lease's dirty timestamp 1718763738381 is greater than the one that is being registered 1718763676878
+2024-06-19T07:52:18.518+05:30  WARN 12596 --- [EurekaServer] [http-nio-8761-exec-4] c.n.e.registry.AbstractInstanceRegistry  : Using the existing instanceInfo instead of the new instanceInfo as the registrant
+2024-06-19T07:52:18.569+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CONFIGSERVER/DESKTOP-2L7S0IM:ConfigServer with status UP (replication=false)
+2024-06-19T07:52:18.569+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-8] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CONFIGSERVER/DESKTOP-2L7S0IM:ConfigServer with status UP (replication=false)
+2024-06-19T07:52:18.575+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-7] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLOUDGATEWAY/DESKTOP-2L7S0IM:CloudGateway:8085 with status UP (replication=false)
+2024-06-19T07:52:18.577+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-4] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLOUDGATEWAY/DESKTOP-2L7S0IM:CloudGateway:8085 with status UP (replication=false)
+2024-06-19T07:52:19.916+05:30  WARN 12596 --- [EurekaServer] [http-nio-8761-exec-9] c.n.e.registry.AbstractInstanceRegistry  : There is an existing lease and the existing lease's dirty timestamp 1718763738381 is greater than the one that is being registered 1718763706437
+2024-06-19T07:52:19.916+05:30  WARN 12596 --- [EurekaServer] [http-nio-8761-exec-9] c.n.e.registry.AbstractInstanceRegistry  : Using the existing instanceInfo instead of the new instanceInfo as the registrant
+2024-06-19T07:52:19.918+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-9] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CONFIGSERVER/DESKTOP-2L7S0IM:ConfigServer with status UP (replication=true)
+2024-06-19T07:52:19.920+05:30  WARN 12596 --- [EurekaServer] [http-nio-8761-exec-9] c.n.e.registry.AbstractInstanceRegistry  : There is an existing lease and the existing lease's dirty timestamp 1718763738381 is greater than the one that is being registered 1718763676878
+2024-06-19T07:52:19.920+05:30  WARN 12596 --- [EurekaServer] [http-nio-8761-exec-9] c.n.e.registry.AbstractInstanceRegistry  : Using the existing instanceInfo instead of the new instanceInfo as the registrant
+2024-06-19T07:52:19.925+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-9] c.n.e.registry.AbstractInstanceRegistry  : Registered instance CLOUDGATEWAY/DESKTOP-2L7S0IM:CloudGateway:8085 with status UP (replication=true)
+2024-06-19T07:53:11.299+05:30  INFO 12596 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2024-06-19T07:53:19.714+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-1] c.n.e.registry.AbstractInstanceRegistry  : Registered instance JOBMS/DESKTOP-2L7S0IM:JobMs:8082 with status UP (replication=false)
+2024-06-19T07:53:20.235+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-5] c.n.e.registry.AbstractInstanceRegistry  : Registered instance JOBMS/DESKTOP-2L7S0IM:JobMs:8082 with status UP (replication=true)
+2024-06-19T07:54:11.305+05:30  INFO 12596 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 5ms
+2024-06-19T07:54:34.201+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-6] c.n.e.registry.AbstractInstanceRegistry  : Registered instance COMPANYMS/DESKTOP-2L7S0IM:companyMS:8081 with status UP (replication=false)
+2024-06-19T07:54:34.715+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-1] c.n.e.registry.AbstractInstanceRegistry  : Registered instance COMPANYMS/DESKTOP-2L7S0IM:companyMS:8081 with status UP (replication=true)
+2024-06-19T07:55:10.718+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-7] c.n.e.registry.AbstractInstanceRegistry  : Registered instance REVIEWMS/DESKTOP-2L7S0IM:ReviewMs:8083 with status UP (replication=false)
+2024-06-19T07:55:11.236+05:30  INFO 12596 --- [EurekaServer] [http-nio-8761-exec-3] c.n.e.registry.AbstractInstanceRegistry  : Registered instance REVIEWMS/DESKTOP-2L7S0IM:ReviewMs:8083 with status UP (replication=true)
+2024-06-19T07:55:11.304+05:30  INFO 12596 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2024-06-19T07:56:11.305+05:30  INFO 12596 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2024-06-19T07:57:11.305+05:30  INFO 12596 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms
+2024-06-19T07:58:11.309+05:30  INFO 12596 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 3ms
+2024-06-19T07:59:11.309+05:30  INFO 12596 --- [EurekaServer] [Eureka-EvictionTimer] c.n.e.registry.AbstractInstanceRegistry  : Running the evict task with compensationTime 0ms

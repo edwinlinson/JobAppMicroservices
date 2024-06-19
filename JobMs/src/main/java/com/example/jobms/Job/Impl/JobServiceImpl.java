@@ -9,6 +9,8 @@ import com.example.jobms.external.Company;
 import com.example.jobms.Dto.JobDTO;
 import com.example.jobms.external.Review;
 import com.example.jobms.mapper.JobMapper;
+import io.github.resilience4j.circuitbreaker.annotation.CircuitBreaker;
+import io.github.resilience4j.retry.annotation.Retry;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.core.ParameterizedTypeReference;
 import org.springframework.http.HttpMethod;
@@ -19,6 +21,7 @@ import org.springframework.web.client.RestTemplate;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
+import java.util.stream.Collectors;
 
 @Service
 public class JobServiceImpl implements JobService {
@@ -28,6 +31,7 @@ public class JobServiceImpl implements JobService {
 	private JobRepo jobRepo;
 	private CompanyClient companyClient;
 	private ReviewClient reviewClient;
+	int attempt=0;
 	
 	
 	public JobServiceImpl(JobRepo jobRepo,CompanyClient companyClient, ReviewClient reviewClient) {
@@ -41,15 +45,18 @@ public class JobServiceImpl implements JobService {
 
 
 	@Override
+//	@CircuitBreaker(name = "jobBreaker",
+//	fallbackMethod = "fallBack")
+	@Retry(name = "retrybreaker")
 	public List<JobDTO> findAll() {
-		List<JobDTO> jobDTOS = new ArrayList<>();
+		System.out.println("Number of attempts: " + ++attempt);
 		List<Job> jobs = jobRepo.findAll();
-		for (Job job:jobs){
-			JobDTO jobDTO = convertToDto(job);
-			jobDTOS.add(jobDTO);
-		}
-
-		return jobDTOS;
+		return jobs.stream().map(this::convertToDto).collect(Collectors.toList());
+	}
+	public List<String> fallBack(Exception e){
+		List<String> list = new ArrayList<>();
+		list.add("some error");
+		return list;
 	}
 
 	@Override

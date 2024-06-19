@@ -13,8 +13,6 @@ public class CompanyController {
 	private CompanyService service;
 
 	public CompanyController(CompanyService service) {
-
-		System.out.println("Company controller working");
 		this.service = service;
 	}
 	

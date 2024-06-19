@@ -15,5 +15,6 @@ public class Company {
 	
 	private String name;
 	private String description;
-
+	private Double average_rating;
+	private Double median_rating;
 }
