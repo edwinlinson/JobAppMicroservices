@@ -137,4 +137,4 @@ Configurations are managed by the Config Server and stored in a GitHub repositor
 If you have any questions, feel free to reach out:
 
 - Email: edwinlinsonpaul@gmail.com
-- GitHub: [yourusername](https://github.com/edwinlinsonpaul)
+- GitHub: [edwinlinsonpaul](https://github.com/edwinlinsonpaul)
